@@ -1,0 +1,5 @@
+find_package(benchmark REQUIRED)
+find_package(Threads REQUIRED)
+add_executable(cpu-bench cpu.cpp)
+target_compile_options(cpu-bench PRIVATE "-fopenmp=libomp")
+target_link_libraries(cpu-bench -pthread ${OpenCV_LIBS} benchmark::benchmark /opt/homebrew/opt/libomp/lib/libomp.a)
